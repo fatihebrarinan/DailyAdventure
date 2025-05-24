@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Özyönetim Oyunu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <!-- İçerik şimdilik kaldırıldı, buraya gün bilgisi eklenebilir -->
+    </header>
+
+    <div id="main-view">
+        <div id="day-display-container">
+            <h1>Özyönetim Macerası</h1>
+            <p id="current-day-text">Gün: Yükleniyor...</p>
+        </div>
+        <main id="game-container">
+            <section id="location-section">
+                <h2>Mekanlar</h2>
+                <button id="home-btn">Ev</button>
+                <button id="school-btn">Okul</button>
+                <button id="work-btn">İş</button>
+            </section>
+
+            <section id="character-view">
+                <h2 id="current-location-title">Şu anki Mekan: Ev</h2>
+                <div id="character">
+                    <!-- Karakter burada görünecek -->
+                    <p>Karakter</p>
+                </div>
+            </section>
+
+            <section id="task-section">
+                <h2>Görevler</h2>
+                <ul id="task-list">
+                    <!-- Görevler burada listelenecek -->
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <div id="home-scene" style="display: none;">
+        <div id="game-canvas">
+            <div id="player" class="player-character"></div>
+            <div id="home-timer-display" class="scene-timer-display">Süre: 01:00</div>
+            <button id="exit-home-btn" class="exit-scene-btn">Ana Menüye Dön</button>
+            <div id="bed-object" class="interactive-object" data-task-id="task-bed">Yatak</div>
+            <div id="dishes-object" class="interactive-object" data-task-id="task-dishes">Bulaşık</div>
+            <div id="vacuum-object" class="interactive-object" data-task-id="task-vacuum">Süpürge</div>
+            <div id="trash-bin-object" class="interactive-object" data-task-id="task-trash">Çöp Kutusu</div>
+            <div id="laundry-machine-object" class="interactive-object" data-task-id="task-laundry">Çamaşır M.</div>
+            <div id="desk-object" class="interactive-object" data-task-id="task-desk">Masa</div>
+            <div id="plant-object" class="interactive-object" data-task-id="task-plant">Bitki</div>
+            <div id="bookshelf-object" class="interactive-object" data-task-id="task-read">Kitaplık</div>
+        </div>
+        <div id="home-task-panel" class="task-panel">
+            <h3>Ev Görevleri (Sırala)</h3>
+            <ul id="home-task-list" class="task-list-ul"></ul>
+        </div>
+    </div>
+
+    <!-- OKUL SAHNESİ -->
+    <div id="school-scene" style="display: none;">
+        <div class="game-canvas"> <!-- Ortak class kullandık -->
+            <div class="player-character"></div> <!-- Ortak class kullandık -->
+            <div id="school-timer-display" class="scene-timer-display">Süre: 01:00</div>
+            <button id="exit-school-btn" class="exit-scene-btn">Ana Menüye Dön</button>
+            <!-- Okul Objeleri -->
+            <div id="blackboard-object" class="interactive-object" data-task-id="task-lecture">Tahta</div>
+            <div id="school-desk-object" class="interactive-object" data-task-id="task-homework">Sıra</div>
+            <div id="library-bookshelf-object" class="interactive-object" data-task-id="task-read-school">Kitaplık</div>
+            <div id="science-lab-object" class="interactive-object" data-task-id="task-experiment">Laboratuvar</div>
+            <div id="art-easel-object" class="interactive-object" data-task-id="task-art-project">Şövale</div>
+        </div>
+        <div id="school-task-panel" class="task-panel">
+            <h3>Okul Görevleri (Sırala)</h3>
+            <ul id="school-task-list" class="task-list-ul"></ul>
+        </div>
+    </div>
+
+    <!-- İŞ SAHNESİ -->
+    <div id="work-scene" style="display: none;">
+        <div class="game-canvas"> <!-- Ortak class kullandık -->
+            <div class="player-character"></div> <!-- Ortak class kullandık -->
+            <div id="work-timer-display" class="scene-timer-display">Süre: 01:00</div>
+            <button id="exit-work-btn" class="exit-scene-btn">Ana Menüye Dön</button>
+            <!-- İş Objeleri -->
+            <div id="computer-desk-object" class="interactive-object" data-task-id="task-coding">Bilgisayar</div>
+            <div id="meeting-table-object" class="interactive-object" data-task-id="task-meeting">Toplantı Masası</div>
+            <div id="coffee-machine-object" class="interactive-object" data-task-id="task-coffee">Kahve Mak.</div>
+            <div id="project-board-object" class="interactive-object" data-task-id="task-planning">Proje Panosu</div>
+            <div id="office-plant-object" class="interactive-object" data-task-id="task-water-plant-work">Bitki</div>
+        </div>
+        <div id="work-task-panel" class="task-panel">
+            <h3>İş Görevleri (Sırala)</h3>
+            <ul id="work-task-list" class="task-list-ul"></ul>
+        </div>
+    </div>
+
+    <footer>
+        <!-- İçerik şimdilik kaldırıldı -->
+    </footer>
+
+    <script src="home.js"></script>
+    <script src="school.js"></script>
+    <script src="work.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
