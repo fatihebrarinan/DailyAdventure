@@ -6,31 +6,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Ana görünüm elementleri
   const mainView = document.getElementById("main-view");
-  const homeButton = document.getElementById("home-btn");
-  const schoolButton = document.getElementById("school-btn");
-  const workButton = document.getElementById("work-btn");
   const currentLocationTitle = document.getElementById(
     "current-location-title"
   );
   const taskList = document.getElementById("task-list");
   const currentDayTextElement = document.getElementById("current-day-text"); // Gün göstergesi için
 
+  // Yeni İnteraktif Harita Butonları
+  const interactiveHomeButton = document.getElementById("interactive-home-btn");
+  const interactiveSchoolButton = document.getElementById("interactive-school-btn");
+  const interactiveWorkButton = document.getElementById("interactive-work-btn");
+
   // Genişletilmiş görevler (Sahneye özgü)
   const allHomeTasks = [
-    { id: "task-bed", name: "Yatağı topla", objectId: "bed-object", completed: false, interactionText: "Yatağı toplamak için E'ye bas" },
-    { id: "task-dishes", name: "Bulaşıkları yıka", objectId: "dishes-object", completed: false, interactionText: "Bulaşıkları yıkamak için E'ye bas" },
-    { id: "task-vacuum", name: "Süpürge yap", objectId: "vacuum-object", completed: false, interactionText: "Süpürge yapmak için E'ye bas" },
-    { id: "task-trash", name: "Çöpü at", objectId: "trash-bin-object", completed: false, interactionText: "Çöpü atmak için E'ye bas" },
-    { id: "task-laundry", name: "Çamaşırları yıka", objectId: "laundry-machine-object", completed: false, interactionText: "Çamaşırları yıkamak için E'ye bas" },
-    { id: "task-desk", name: "Masayı düzenle", objectId: "desk-object", completed: false, interactionText: "Masayı düzenlemek için E'ye bas" },
-    { id: "task-plant", name: "Bitkileri sula", objectId: "plant-object", completed: false, interactionText: "Bitkileri sulamak için E'ye bas" },
-    { id: "task-read", name: "Kitap oku (ev)", objectId: "bookshelf-object", completed: false, interactionText: "Kitap okumak için E'ye bas" },
+    { id: "task-bed", name: "Yatağı topla", objectId: "bed-object", completed: false, interactionText: "Yatağı toplamak için E'ye bas", imageStates: { initial: 'images/yatak_dağınık.png', completed: 'images/yatak_toplu.png' } },
+    { id: "task-dishes", name: "Bulaşıkları yıka", objectId: "dishes-object", completed: false, interactionText: "Bulaşıkları yıkamak için E'ye bas", imageStates: { initial: 'images/makine_kirli.png', completed: 'images/makine_temiz.png' } },
+    //{ id: "task-vacuum", name: "Süpürge yap", objectId: "vacuum-object", completed: false, interactionText: "Süpürge yapmak için E'ye bas" },
+    { id: "task-trash", name: "Çöpü at", objectId: "trash-bin-object", completed: false, interactionText: "Çöpü atmak için E'ye bas", imageStates: { initial: 'images/çöp_kirli.png', completed: 'images/çöp_temiz.png' } },
+    //{ id: "task-desk", name: "Masayı düzenle", objectId: "desk-object", completed: false, interactionText: "Masayı düzenlemek için E'ye bas"},
+    { id: "task-plant", name: "Bitkileri sula", objectId: "plant-object", completed: false, interactionText: "Bitkileri sulamak için E'ye bas", imageStates: { initial: 'images/çiçek_kuru.png', completed: 'images/çiçek_sulanmış.png' } },
+    { id: "task-read", name: "Kitap oku", objectId: "bookshelf-object", completed: false, interactionText: "Kitap okumak için E'ye bas", imageStates: { initial: 'images/kitap_okuma.png', completed: 'images/kitap_okuma.png' } },
   ];
 
   const allSchoolTasks = [
     { id: "task-lecture", name: "Derse katıl", objectId: "blackboard-object", completed: false, interactionText: "Derse katılmak için E'ye bas" },
     { id: "task-homework", name: "Ödevi yap", objectId: "school-desk-object", completed: false, interactionText: "Ödevi yapmak için E'ye bas" },
-    { id: "task-read-school", name: "Kitap oku (okul)", objectId: "library-bookshelf-object", completed: false, interactionText: "Kitap okumak için E'ye bas" },
     { id: "task-experiment", name: "Deney yap", objectId: "science-lab-object", completed: false, interactionText: "Deney yapmak için E'ye bas" },
     { id: "task-art-project", name: "Sanat projesi yap", objectId: "art-easel-object", completed: false, interactionText: "Sanat projesi için E'ye bas" },
   ];
@@ -85,10 +85,10 @@ document.addEventListener("DOMContentLoaded", () => {
       timeLeft: 60, // Saniye
       initialPlayerPos: { left: "50%", top: "600px" },
       playerImagePaths: {
-        front: 'karakter_ön.png',
-        back: 'karakter_arka.png',
-        left: 'karakter_sol.png',
-        right: 'karakter_sağ.png'
+        front: 'images/karakter_ön.png',
+        back: 'images/karakter_arka.png',
+        left: 'images/karakter_sol.png',
+        right: 'images/karakter_sağ.png'
       }
     },
     school: {
@@ -108,10 +108,10 @@ document.addEventListener("DOMContentLoaded", () => {
       timeLeft: 60, // Saniye
       initialPlayerPos: { left: "50%", top: "50%" },
       playerImagePaths: {
-        front: 'karakter_ön.jpg',
-        back: 'karakter_arka.jpg',
-        left: 'karakter_sol.jpg',
-        right: 'karakter_sağ.jpg'
+        front: 'images/karakter_ön.png',
+        back: 'images/karakter_arka.png',
+        left: 'images/karakter_sol.png',
+        right: 'images/karakter_sağ.png'
       }
     },
     work: {
@@ -131,10 +131,10 @@ document.addEventListener("DOMContentLoaded", () => {
       timeLeft: 60, // Saniye
       initialPlayerPos: { left: "50%", top: "50%" },
       playerImagePaths: {
-        front: 'karakter_ön.jpg',
-        back: 'karakter_arka.jpg',
-        left: 'karakter_sol.jpg',
-        right: 'karakter_sağ.jpg'
+        front: 'images/karakter_ön.png',
+        back: 'images/karakter_arka.png',
+        left: 'images/karakter_sol.png',
+        right: 'images/karakter_sağ.png'
       }
     }
   };
@@ -180,9 +180,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function resetAllTasks() {
     console.log("Tüm görevler sıfırlanıyor...");
-    sceneConfigs.home.allTasks.forEach((task) => (task.completed = false));
-    sceneConfigs.school.allTasks.forEach((task) => (task.completed = false));
-    sceneConfigs.work.allTasks.forEach((task) => (task.completed = false));
+    Object.values(sceneConfigs).forEach(config => {
+      config.allTasks.forEach((task) => {
+        task.completed = false;
+        // Görev nesnelerinin görsellerini başlangıç durumuna sıfırla
+        if (task.objectId && task.imageStates && task.imageStates.initial) {
+          const objectElement = document.getElementById(task.objectId);
+          if (objectElement) {
+            objectElement.style.backgroundImage = `url('${task.imageStates.initial}')`;
+          }
+        }
+      });
+    });
 
     // Ana görünümdeki görev listesini de güncelle (eğer oradaysa ve ev değilse)
     if (mainView.style.display !== "none" && currentLocation !== "ev") {
@@ -198,6 +207,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     config.activeTasks = [];
     config.taskPanelListElement.innerHTML = "";
+    
+    // Sahnedeki etkileşimli nesnelerin görsellerini başlangıç durumuna ayarla
+    config.allTasks.forEach(task => {
+      if (task.objectId && task.imageStates && task.imageStates.initial) {
+        const objectElement = document.getElementById(task.objectId);
+        if (objectElement) {
+          objectElement.style.backgroundImage = `url('${task.imageStates.initial}')`;
+        }
+      }
+    });
+
     const availableTasks = config.allTasks.filter((t) => !t.completed);
     shuffleArray(availableTasks);
 
@@ -367,6 +387,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (taskData && !taskData.completed) {
       taskData.completed = true;
+
+      // Görev nesnesinin görselini güncelle
+      if (taskData.objectId && taskData.imageStates && taskData.imageStates.completed) {
+        const objectElement = document.getElementById(taskData.objectId);
+        if (objectElement) {
+          objectElement.style.backgroundImage = `url('${taskData.imageStates.completed}')`;
+        }
+      }
+
       renderSceneTaskList(currentSceneKey);
 
       const allActiveTasksCompleted = currentSceneConfig.activeTasks.every((id) => {
@@ -606,9 +635,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   // Olay Dinleyicileri
-  homeButton.addEventListener("click", () => showScene("home"));
-  schoolButton.addEventListener("click", () => showScene("school"));
-  workButton.addEventListener("click", () => showScene("work"));
+  interactiveHomeButton.addEventListener("click", () => showScene("home"));
+  interactiveSchoolButton.addEventListener("click", () => showScene("school"));
+  interactiveWorkButton.addEventListener("click", () => showScene("work"));
 
   // Sahne çıkış butonları için config üzerinden dinamik olarak atama
   Object.values(sceneConfigs).forEach(config => {

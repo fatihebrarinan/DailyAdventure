@@ -20,10 +20,10 @@
 
     <div id="main-view" style="display: none;">
         <div id="day-display-container">
-            <h1>Özyönetim Macerası</h1>
+            <h1 style="display: none;">Özyönetim Macerası</h1>
             <p id="current-day-text">Gün: Yükleniyor...</p>
         </div>
-        <main id="game-container">
+        <main id="game-container" style="display: none;">
             <section id="location-section">
                 <h2>Mekanlar</h2>
                 <button id="home-btn">Ev</button>
@@ -31,21 +31,24 @@
                 <button id="work-btn">İş</button>
             </section>
 
-            <section id="character-view">
+            <section id="character-view" style="display: none;">
                 <h2 id="current-location-title">Şu anki Mekan: Ev</h2>
                 <div id="character">
-                    <!-- Karakter burada görünecek -->
                     <p>Karakter</p>
                 </div>
             </section>
 
-            <section id="task-section">
+            <section id="task-section" style="display: none;">
                 <h2>Görevler</h2>
                 <ul id="task-list">
-                    <!-- Görevler burada listelenecek -->
                 </ul>
             </section>
         </main>
+
+        <div id="interactive-school-btn" class="interactive-map-button"></div>
+        <div id="interactive-home-btn" class="interactive-map-button"></div>
+        <div id="interactive-work-btn" class="interactive-map-button"></div>
+
     </div>
 
     <div id="home-scene" class="scene-layout" style="display: none;">
@@ -53,14 +56,14 @@
             <div id="player" class="player-character"></div>
             <div id="home-timer-display" class="scene-timer-display">Süre: 01:00</div>
             <button id="exit-home-btn" class="exit-scene-btn">Ana Menüye Dön</button>
-            <div id="bed-object" class="interactive-object" data-task-id="task-bed">Yatak</div>
-            <div id="dishes-object" class="interactive-object" data-task-id="task-dishes">Bulaşık</div>
-            <div id="vacuum-object" class="interactive-object" data-task-id="task-vacuum">Süpürge</div>
-            <div id="trash-bin-object" class="interactive-object" data-task-id="task-trash">Çöp Kutusu</div>
-            <div id="laundry-machine-object" class="interactive-object" data-task-id="task-laundry">Çamaşır M.</div>
-            <div id="desk-object" class="interactive-object" data-task-id="task-desk">Masa</div>
-            <div id="plant-object" class="interactive-object" data-task-id="task-plant">Bitki</div>
-            <div id="bookshelf-object" class="interactive-object" data-task-id="task-read">Kitaplık</div>
+            <div id="bed-object" class="interactive-object" data-task-id="task-bed"></div>
+            <div id="dishes-object" class="interactive-object" data-task-id="task-dishes"></div>
+            <div id="vacuum-object" class="interactive-object" data-task-id="task-vacuum"></div>
+            <div id="trash-bin-object" class="interactive-object" data-task-id="task-trash"></div>
+            <div id="laundry-machine-object" class="interactive-object" data-task-id="task-laundry"></div>
+            <div id="desk-object" class="interactive-object" data-task-id="task-desk"></div>
+            <div id="plant-object" class="interactive-object" data-task-id="task-plant"></div>
+            <div id="bookshelf-object" class="interactive-object" data-task-id="task-read"></div>
         </div>
         <div id="home-task-panel" class="task-panel">
             <h3>Ev Görevleri (Sırala)</h3>
@@ -74,11 +77,11 @@
             <div class="player-character"></div>
             <div id="school-timer-display" class="scene-timer-display">Süre: 01:00</div>
             <button id="exit-school-btn" class="exit-scene-btn">Ana Menüye Dön</button>
-            <div id="blackboard-object" class="interactive-object" data-task-id="task-lecture">Tahta</div>
-            <div id="school-desk-object" class="interactive-object" data-task-id="task-homework">Sıra</div>
-            <div id="library-bookshelf-object" class="interactive-object" data-task-id="task-read-school">Kitaplık</div>
-            <div id="science-lab-object" class="interactive-object" data-task-id="task-experiment">Laboratuvar</div>
-            <div id="art-easel-object" class="interactive-object" data-task-id="task-art-project">Şövale</div>
+            <div id="blackboard-object" class="interactive-object" data-task-id="task-lecture"></div>
+            <div id="school-desk-object" class="interactive-object" data-task-id="task-homework"></div>
+            <div id="library-bookshelf-object" class="interactive-object" data-task-id="task-read-school"></div>
+            <div id="science-lab-object" class="interactive-object" data-task-id="task-experiment"></div>
+            <div id="art-easel-object" class="interactive-object" data-task-id="task-art-project"></div>
         </div>
         <div id="school-task-panel" class="task-panel">
             <h3>Okul Görevleri (Sırala)</h3>
@@ -92,11 +95,11 @@
             <div class="player-character"></div>
             <div id="work-timer-display" class="scene-timer-display">Süre: 01:00</div>
             <button id="exit-work-btn" class="exit-scene-btn">Ana Menüye Dön</button>
-            <div id="computer-desk-object" class="interactive-object" data-task-id="task-coding">Bilgisayar</div>
-            <div id="meeting-table-object" class="interactive-object" data-task-id="task-meeting">Toplantı Masası</div>
-            <div id="coffee-machine-object" class="interactive-object" data-task-id="task-coffee">Kahve Mak.</div>
-            <div id="project-board-object" class="interactive-object" data-task-id="task-planning">Proje Panosu</div>
-            <div id="office-plant-object" class="interactive-object" data-task-id="task-water-plant-work">Bitki</div>
+            <div id="computer-desk-object" class="interactive-object" data-task-id="task-coding"></div>
+            <div id="meeting-table-object" class="interactive-object" data-task-id="task-meeting"></div>
+            <div id="coffee-machine-object" class="interactive-object" data-task-id="task-coffee"></div>
+            <div id="project-board-object" class="interactive-object" data-task-id="task-planning"></div>
+            <div id="office-plant-object" class="interactive-object" data-task-id="task-water-plant-work"></div>
         </div>
         <div id="work-task-panel" class="task-panel">
             <h3>İş Görevleri (Sırala)</h3>

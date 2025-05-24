@@ -11,7 +11,7 @@ body {
 #start-screen {
     width: 100vw;
     height: 100vh;
-    background-image: url('start_screen.png');
+    background-image: url('images/start_screen.png');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -51,21 +51,23 @@ body {
 }
 
 #day-display-container {
-    text-align: center;
-    padding: 10px 0;
-    background-color: #4a5568; /* Biraz koyu bir tema */
+    padding: 10px 15px;
+    background-color: rgba(0, 0, 0, 0.5); /* Arka planı biraz koyulaştırarak okunurluğu artır */
     color: white;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 5px;
+    z-index: 10; /* Diğer harita butonlarının üzerinde olabilir */
 }
 
 #day-display-container h1 {
-    margin: 0 0 5px 0;
-    font-size: 1.8em;
 }
 
 #current-day-text {
     margin: 0;
-    font-size: 1.1em;
-    font-style: italic;
+    font-size: 1.3em; /* Biraz büyütüldü */
+    font-weight: bold;
 }
 
 #game-container {
@@ -294,21 +296,26 @@ footer {
 /* Ortak Etkileşimli Obje Stilleri */
 .interactive-object {
     position: absolute;
-    display: flex;
+    display: flex; /* İçerik metni artık olmayacağı için flex gerekmeyebilir, ama kalsın */
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: 0.85em; /* Biraz büyüdü */
-    color: #fff; /* Yazı rengi objeye göre değişebilir, bu genel */
-    padding: 8px;
-    border-radius: 6px;
-    box-shadow: 2px 2px 6px rgba(0,0,0,0.35);
-    border: 2px solid rgba(0,0,0,0.2);
-    cursor: help; /* Etkileşim ipucu */
+    /* font-size: 0.85em; */ /* Metin kaldırıldığı için gereksiz */
+    /* color: #fff; */ /* Metin kaldırıldığı için gereksiz */
+    /* padding: 8px; */ /* Görselin boyutuna göre ayarlanacak */
+    border-radius: 6px; /* Hafif yuvarlak kenarlar kalabilir */
+    /* box-shadow: 2px 2px 6px rgba(0,0,0,0.35); */ /* Görselin kendisinde olabilir */
+    /* border: 2px solid rgba(0,0,0,0.2); */ /* Görselin kendisinde olabilir */
+    cursor: help;
+    background-size: contain; /* Veya cover, görsele bağlı */
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background-color: transparent; // Eski renkleri temizle */
 }
-.interactive-object::before { /* İçerik metnini HTML'den alacağız */
-    color: #333; /* Koyu yazı */
-    font-weight: bold;
+.interactive-object::before { /* İçerik metnini HTML'den alacağız - Artık metin yok */
+    /* color: #333; */
+    /* font-weight: bold; */
+    content: ""; /* Metni kaldır */
 }
 
 /* Okul Objeleri Stilleri (Örnekler) */
@@ -339,14 +346,14 @@ footer {
 }
 
 /* Ev objeleri için metin rengi ve belirli stiller (ortak .interactive-object üzerine) */
-#bed-object { background-color: #87CEEB; border-color: #5F9EA0; bottom: 30px; left: 50px; width:80px; height:120px;}
-#dishes-object { background-color: #B0C4DE; border-color: #778899; top: 50px; right: 50px; width:70px; height:50px;}
-#vacuum-object { background-color: #FFB6C1; border-color: #FF69B4; bottom: 150px; right: 80px; width:50px; height:70px;}
-#trash-bin-object { background-color: #90EE90; border-color: #3CB371; top: 200px; left: 30px; width:40px; height:60px;}
-#laundry-machine-object { background-color: #DDA0DD; border-color: #BA55D3; bottom: 250px; left: 150px; width:60px; height:80px;}
-#desk-object { background-color: #F4A460; border-color: #D2691E; top: 150px; right: 200px; width:100px; height:60px;}
-#plant-object { background-color: #20B2AA; border-color: #008080; top: 300px; right: 100px; width:40px; height:50px;}
-#bookshelf-object { background-color: #FFE4B5; border-color: #FFDAB9; top: 250px; left: 250px; width:70px; height:100px;}
+#bed-object { /* background-color, border-color kaldırılacak, width/height kalacak */ bottom: 30px; left: 50px; width:80px; height:120px;}
+#dishes-object { /* background-color, border-color kaldırılacak, width/height kalacak */ top: 50px; right: 50px; width:70px; height:50px;}
+#vacuum-object { /* background-color, border-color kaldırılacak, width/height kalacak */ bottom: 150px; right: 80px; width:50px; height:70px;}
+#trash-bin-object { /* background-color, border-color kaldırılacak, width/height kalacak */ top: 200px; left: 30px; width:40px; height:60px;}
+#laundry-machine-object { /* background-color, border-color kaldırılacak, width/height kalacak */ bottom: 250px; left: 150px; width:60px; height:80px;}
+#desk-object { /* background-color, border-color kaldırılacak, width/height kalacak */ top: 150px; right: 200px; width:100px; height:60px;}
+#plant-object { /* background-color, border-color kaldırılacak, width/height kalacak */ top: 300px; right: 100px; width:40px; height:50px;}
+#bookshelf-object { /* background-color, border-color kaldırılacak, width/height kalacak */ top: 250px; left: 250px; width:70px; height:100px;}
 
 #home-task-panel { /* Ev paneline özel bir şey varsa */ }
 .dragging { opacity: 0.5; }
@@ -368,4 +375,49 @@ header {
     border-radius: 5px;
     font-size: 1.1em;
     z-index: 10;
+}
+
+/* Main View (Seçim Ekranı) Stilleri */
+#main-view {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('images/seçim_ekranı.png');
+    background-size: cover;
+    background-position: center;
+    position: relative; /* İçeriklerin konumlandırılması için */
+    display: none; /* Başlangıçta gizli, JS ile gösterilecek */
+}
+
+/* İnteraktif Harita Butonları */
+.interactive-map-button {
+    position: absolute;
+    background-color: rgba(255, 0, 0, 0.3); /* Tamamen transparan, test için 0.3 gibi bir alpha değeri kullanılabilir */
+    cursor: pointer;
+    border-radius: 10px; /* Kenarları biraz yuvarlaklaştıralım, görünmese de */
+    /* transition: background-color 0.2s; // Hover efekti için (opsiyonel) */
+}
+/* .interactive-map-button:hover {
+    background-color: rgba(255, 255, 0, 0.2); // Hover'da hafif sarı (opsiyonel)
+} */
+
+/* Tahmini konumlar ve boyutlar - Bunlar resme göre ayarlanmalı */
+#interactive-school-btn {
+    top: 10%; /* Örnek */
+    left: 3%; /* Örnek */
+    width: 30%; /* Örnek */
+    height: 30%; /* Örnek */
+}
+
+#interactive-home-btn {
+    top: 10%; /* Örnek */
+    left: 38%; /* Örnek */
+    width: 25%; /* Örnek */
+    height: 30%; /* Örnek */
+}
+
+#interactive-work-btn {
+    top: 3%; /* Örnek */
+    left: 73%; /* Örnek */
+    width: 23%; /* Örnek */
+    height: 33%; /* Örnek */
 } 
