@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Başlangıç Ekranı Elementleri
+  const startScreen = document.getElementById("start-screen");
+  const startGameButton = document.getElementById("start-game-btn");
+  const exitGameButton = document.getElementById("exit-game-btn");
+
   // Ana görünüm elementleri
   const mainView = document.getElementById("main-view");
   const homeButton = document.getElementById("home-btn");
@@ -67,8 +72,8 @@ document.addEventListener("DOMContentLoaded", () => {
       key: "home",
       name: "Ev",
       sceneElement: document.getElementById("home-scene"),
-      canvasElement: document.getElementById("home-scene").querySelector(".game-canvas"), // #game-canvas ID'si home'a özeldi, genele çevrildi.
-      playerElement: document.getElementById("home-scene").querySelector(".player-character"), // #player ID'si home'a özeldi.
+      canvasElement: document.getElementById("home-scene").querySelector(".game-canvas"),
+      playerElement: document.getElementById("home-scene").querySelector(".player-character"),
       taskPanelListElement: document.getElementById("home-task-list"),
       timerDisplayElement: document.getElementById("home-timer-display"),
       exitButtonElement: document.getElementById("exit-home-btn"),
@@ -78,7 +83,13 @@ document.addEventListener("DOMContentLoaded", () => {
       gameLoopInterval: null,
       timerInterval: null,
       timeLeft: 60, // Saniye
-      initialPlayerPos: { left: "50%", top: "600px" }
+      initialPlayerPos: { left: "50%", top: "600px" },
+      playerImagePaths: {
+        front: 'karakter_ön.png',
+        back: 'karakter_arka.png',
+        left: 'karakter_sol.png',
+        right: 'karakter_sağ.png'
+      }
     },
     school: {
       key: "school",
@@ -95,7 +106,13 @@ document.addEventListener("DOMContentLoaded", () => {
       gameLoopInterval: null,
       timerInterval: null,
       timeLeft: 60, // Saniye
-      initialPlayerPos: { left: "50%", top: "50%" }
+      initialPlayerPos: { left: "50%", top: "50%" },
+      playerImagePaths: {
+        front: 'karakter_ön.jpg',
+        back: 'karakter_arka.jpg',
+        left: 'karakter_sol.jpg',
+        right: 'karakter_sağ.jpg'
+      }
     },
     work: {
       key: "work",
@@ -112,7 +129,13 @@ document.addEventListener("DOMContentLoaded", () => {
       gameLoopInterval: null,
       timerInterval: null,
       timeLeft: 60, // Saniye
-      initialPlayerPos: { left: "50%", top: "50%" } // Örnek, ayarlanabilir
+      initialPlayerPos: { left: "50%", top: "50%" },
+      playerImagePaths: {
+        front: 'karakter_ön.jpg',
+        back: 'karakter_arka.jpg',
+        left: 'karakter_sol.jpg',
+        right: 'karakter_sağ.jpg'
+      }
     }
   };
 
@@ -449,6 +472,20 @@ document.addEventListener("DOMContentLoaded", () => {
     let newPlayerX = config.playerElement.offsetLeft;
     let newPlayerY = config.playerElement.offsetTop;
 
+    // Determine target image based on movement keys
+    let targetImage = config.playerImagePaths.front; // Default to front
+    if (config.movementKeys.w) {
+      targetImage = config.playerImagePaths.back;
+    } else if (config.movementKeys.s) {
+      targetImage = config.playerImagePaths.front;
+    } else if (config.movementKeys.a) {
+      targetImage = config.playerImagePaths.left;
+    } else if (config.movementKeys.d) {
+      targetImage = config.playerImagePaths.right;
+    }
+    config.playerElement.style.backgroundImage = `url('${targetImage}')`;
+
+    // Movement logic
     if (config.movementKeys.w || config.movementKeys.arrowup) newPlayerY -= playerSpeedPixels;
     if (config.movementKeys.s || config.movementKeys.arrowdown) newPlayerY += playerSpeedPixels;
     if (config.movementKeys.a || config.movementKeys.arrowleft) newPlayerX -= playerSpeedPixels;
@@ -520,14 +557,19 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!sceneConfigs[sceneKeyToShow]) return;
 
     mainView.style.display = "none";
-    if (currentSceneConfig) { // Eğer başka bir sahne açıksa onu gizle (güvenlik önlemi)
+    if (currentSceneConfig) { 
         currentSceneConfig.sceneElement.style.display = "none";
-        // Eski sahnenin event listener'larını ve interval'lerini temizlemek iyi bir pratik olurdu
-        // ama hideScene() zaten bunu yapacak şekilde güncellenecek.
     }
 
     currentSceneKey = sceneKeyToShow;
     currentSceneConfig = sceneConfigs[currentSceneKey];
+
+    // Set initial player image
+    currentSceneConfig.playerElement.style.backgroundImage = `url('${currentSceneConfig.playerImagePaths.front}')`;
+    // CSS should handle size, repeat, position. If not, add here:
+    // currentSceneConfig.playerElement.style.backgroundSize = "contain"; 
+    // currentSceneConfig.playerElement.style.backgroundRepeat = "no-repeat";
+    // currentSceneConfig.playerElement.style.backgroundPosition = "center";
 
     currentSceneConfig.sceneElement.style.display = "flex";
     initializeSceneTasks(currentSceneKey);
@@ -575,7 +617,19 @@ document.addEventListener("DOMContentLoaded", () => {
       }
   });
 
+  // Başlangıç Ekranı Olayları
+  startGameButton.addEventListener("click", () => {
+    startScreen.style.display = "none";
+    mainView.style.display = "block"; // Ana görünümü göster
+    initializeGame(); // Oyunu başlat
+  });
+
+  exitGameButton.addEventListener("click", () => {
+    window.close(); // Pencereyi kapatmayı dene
+    // Alternatif olarak, kullanıcıya bir mesaj gösterebilir veya başka bir işlem yapabilirsiniz.
+    // console.log("Çıkış butonuna basıldı."); 
+  });
 
   // Oyunu Başlat
-  initializeGame();
+  // initializeGame(); // Oyun artık doğrudan başlamayacak, başlangıç ekranından sonra başlayacak.
 });

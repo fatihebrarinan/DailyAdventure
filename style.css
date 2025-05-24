@@ -8,6 +8,48 @@ body {
     min-height: 100vh;
 }
 
+#start-screen {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('start_screen.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed; /* Diğer içeriklerin üzerinde kalması için */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* En üstte olması için */
+}
+
+#start-screen-content {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+#start-screen button {
+    display: block;
+    width: 200px; /* Buton genişliği */
+    padding: 15px 20px;
+    margin: 15px auto; /* Ortalamak ve aralarında boşluk için */
+    font-size: 1.2em;
+    color: white;
+    background-color: #5c6bc0; /* Ana tema rengi */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#start-screen button:hover {
+    background-color: #3f51b5; /* Hover rengi */
+}
+
 #day-display-container {
     text-align: center;
     padding: 10px 0;
@@ -220,13 +262,15 @@ footer {
 
 /* Ortak Oyuncu Karakteri Stili */
 .player-character {
-    width: 40px;
-    height: 60px;
-    background-color: darkorange; /* Oyuncu rengi değişti */
+    width: 40px; /* Görselin en-boy oranına göre ayarlanabilir */
+    height: 60px; /* Görselin en-boy oranına göre ayarlanabilir */
+    /* background-color: darkorange; // Arka plan rengi yerine görsel kullanılacak */
     position: absolute;
-    /* top ve left JS tarafından ayarlanacak veya başlangıç için CSS'te kalacak */
-    /* Örneğin: top: 50%; left: 50%; transform: translate(-50%, -50%); */
     z-index: 5;
+    background-size: contain; /* Görselin tamamının görünmesini sağlar, boşluk kalabilir */
+    /* background-size: cover; */ /* Görselin alanı kaplamasını sağlar, kırpılabilir */
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 /* Ortak Çıkış Butonu Stili */
