@@ -41,8 +41,8 @@
         </main>
     </div>
 
-    <div id="home-scene" style="display: none;">
-        <div id="game-canvas">
+    <div id="home-scene" class="scene-layout" style="display: none;">
+        <div id="game-canvas" class="game-canvas">
             <div id="player" class="player-character"></div>
             <div id="home-timer-display" class="scene-timer-display">Süre: 01:00</div>
             <button id="exit-home-btn" class="exit-scene-btn">Ana Menüye Dön</button>
@@ -62,12 +62,11 @@
     </div>
 
     <!-- OKUL SAHNESİ -->
-    <div id="school-scene" style="display: none;">
-        <div class="game-canvas"> <!-- Ortak class kullandık -->
-            <div class="player-character"></div> <!-- Ortak class kullandık -->
+    <div id="school-scene" class="scene-layout" style="display: none;">
+        <div class="game-canvas">
+            <div class="player-character"></div>
             <div id="school-timer-display" class="scene-timer-display">Süre: 01:00</div>
             <button id="exit-school-btn" class="exit-scene-btn">Ana Menüye Dön</button>
-            <!-- Okul Objeleri -->
             <div id="blackboard-object" class="interactive-object" data-task-id="task-lecture">Tahta</div>
             <div id="school-desk-object" class="interactive-object" data-task-id="task-homework">Sıra</div>
             <div id="library-bookshelf-object" class="interactive-object" data-task-id="task-read-school">Kitaplık</div>
@@ -81,12 +80,11 @@
     </div>
 
     <!-- İŞ SAHNESİ -->
-    <div id="work-scene" style="display: none;">
-        <div class="game-canvas"> <!-- Ortak class kullandık -->
-            <div class="player-character"></div> <!-- Ortak class kullandık -->
+    <div id="work-scene" class="scene-layout" style="display: none;">
+        <div class="game-canvas">
+            <div class="player-character"></div>
             <div id="work-timer-display" class="scene-timer-display">Süre: 01:00</div>
             <button id="exit-work-btn" class="exit-scene-btn">Ana Menüye Dön</button>
-            <!-- İş Objeleri -->
             <div id="computer-desk-object" class="interactive-object" data-task-id="task-coding">Bilgisayar</div>
             <div id="meeting-table-object" class="interactive-object" data-task-id="task-meeting">Toplantı Masası</div>
             <div id="coffee-machine-object" class="interactive-object" data-task-id="task-coffee">Kahve Mak.</div>
@@ -103,9 +101,6 @@
         <!-- İçerik şimdilik kaldırıldı -->
     </footer>
 
-    <script src="home.js"></script>
-    <script src="school.js"></script>
-    <script src="work.js"></script>
     <script src="script.js"></script>
 </body>
 </html> 

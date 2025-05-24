@@ -105,23 +105,34 @@ footer {
     margin-top: auto; /* Footer'ı sayfanın en altına iter */
 }
 
-/* Ev Sahnesi Ana Yapısı */
-#home-scene {
+/* Ortak Sahne Yerleşimi */
+.scene-layout {
     width: 100%;
     height: 100vh;
-    background-color: lightgreen;
-    display: flex; /* Ana oyun alanı ve görev panelini yan yana getirmek için */
-    justify-content: space-between; /* Aralarında boşluk bırakır veya flex-grow ile yönetilir */
-    align-items: stretch; /* Yükseklikleri eşitler */
+    /* background-color: lightgreen; Sahneye özel arkaplanlar aşağıda tanımlanacak */
+    display: flex; 
+    justify-content: space-between; 
+    align-items: stretch; 
     overflow: hidden;
 }
 
-#game-canvas {
+/* Ev Sahnesi Ana Yapısı - Artık .scene-layout tarafından genel olarak ele alınıyor */
+/* #home-scene {
+    width: 100%;
+    height: 100vh;
+    background-color: lightgreen;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: stretch; 
+    overflow: hidden;
+} */
+
+/* Genel .game-canvas stili */
+.game-canvas { /* #game-canvas ID'sinden genele taşındı */
     flex-grow: 1;
     height: 100%;
-    /* background-color: #8FBC8F; Ev için özel renk aşağıda olacak */
     position: relative;
-    border-right: 2px solid #333;
+    border-right: 2px solid #333; /* Görev paneli ile ayrım için */
     overflow: hidden;
 }
 
