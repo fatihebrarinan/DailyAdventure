@@ -21,26 +21,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const allHomeTasks = [
     { id: "task-bed", name: "Yatağı topla", objectId: "bed-object", completed: false, interactionText: "Yatağı toplamak için E'ye bas", imageStates: { initial: 'images/yatak_dağınık.png', completed: 'images/yatak_toplu.png' } },
     { id: "task-dishes", name: "Bulaşıkları yıka", objectId: "dishes-object", completed: false, interactionText: "Bulaşıkları yıkamak için E'ye bas", imageStates: { initial: 'images/makine_kirli.png', completed: 'images/makine_temiz.png' } },
-    //{ id: "task-vacuum", name: "Süpürge yap", objectId: "vacuum-object", completed: false, interactionText: "Süpürge yapmak için E'ye bas" },
+    { id: "task-vacuum", name: "Süpürge yap", objectId: "vacuum-object", completed: false, interactionText: "Süpürge yapmak için E'ye bas", imageStates: { initial: 'images/süpürülmemiş_toz.png', completed: 'images/süpürülen_toz.png' } },
     { id: "task-trash", name: "Çöpü at", objectId: "trash-bin-object", completed: false, interactionText: "Çöpü atmak için E'ye bas", imageStates: { initial: 'images/çöp_kirli.png', completed: 'images/çöp_temiz.png' } },
-    //{ id: "task-desk", name: "Masayı düzenle", objectId: "desk-object", completed: false, interactionText: "Masayı düzenlemek için E'ye bas"},
+    { id: "task-desk", name: "Masayı düzenle", objectId: "desk-object", completed: false, interactionText: "Masayı düzenlemek için E'ye bas", imageStates: { initial: 'images/masa_dağınık.png', completed: 'images/masa_toplu.png' } },
     { id: "task-plant", name: "Bitkileri sula", objectId: "plant-object", completed: false, interactionText: "Bitkileri sulamak için E'ye bas", imageStates: { initial: 'images/çiçek_kuru.png', completed: 'images/çiçek_sulanmış.png' } },
     { id: "task-read", name: "Kitap oku", objectId: "bookshelf-object", completed: false, interactionText: "Kitap okumak için E'ye bas", imageStates: { initial: 'images/kitap_okuma.png', completed: 'images/kitap_okuma.png' } },
   ];
 
   const allSchoolTasks = [
-    { id: "task-lecture", name: "Derse katıl", objectId: "blackboard-object", completed: false, interactionText: "Derse katılmak için E'ye bas" },
-    { id: "task-homework", name: "Ödevi yap", objectId: "school-desk-object", completed: false, interactionText: "Ödevi yapmak için E'ye bas" },
-    { id: "task-experiment", name: "Deney yap", objectId: "science-lab-object", completed: false, interactionText: "Deney yapmak için E'ye bas" },
-    { id: "task-art-project", name: "Sanat projesi yap", objectId: "art-easel-object", completed: false, interactionText: "Sanat projesi için E'ye bas" },
+    //{ id: "task-lecture", name: "Derse katıl", objectId: "blackboard-object", completed: false, interactionText: "Derse katılmak için E'ye bas" },
+    { id: "task-homework", name: "Ödevi yap", objectId: "school-desk-object", completed: false, interactionText: "Ödevi yapmak için E'ye bas", imageStates: { initial: 'images/ödev_yapılmamış.png', completed: 'images/ödev_yapılmış.png' } }, 
+    { id: "task-experiment", name: "Deney yap", objectId: "science-lab-object", completed: false, interactionText: "Deney yapmak için E'ye bas", imageStates: { initial: 'images/karakter_ön.png', completed: 'images/deney.png' } },
+    { id: "task-art-project", name: "Çanta hazırla", objectId: "art-easel-object", completed: false, interactionText: "Çanta hazırlamak için E'ye bas", imageStates: { initial: 'images/çanta_boş.png', completed: 'images/çanta_dolu.png' } },
   ];
 
   const allWorkTasks = [
-    { id: "task-coding", name: "Kod yaz", objectId: "computer-desk-object", completed: false, interactionText: "Kod yazmak için E'ye bas" },
-    { id: "task-meeting", name: "Toplantıya katıl", objectId: "meeting-table-object", completed: false, interactionText: "Toplantıya katılmak için E'ye bas" },
-    { id: "task-coffee", name: "Kahve al", objectId: "coffee-machine-object", completed: false, interactionText: "Kahve almak için E'ye bas" },
-    { id: "task-planning", name: "Proje planla", objectId: "project-board-object", completed: false, interactionText: "Plan yapmak için E'ye bas" },
-    { id: "task-water-plant-work", name: "Ofis bitkisini sula", objectId: "office-plant-object", completed: false, interactionText: "Bitkiyi sulamak için E'ye bas" },
+    { id: "task-coding", name: "Muhasebe işlerini yap", objectId: "computer-desk-object", completed: false, interactionText: "Muhasebe işlerini yapmak için E'ye bas", imageStates: { initial: 'images/muhasebe_önce.png', completed: 'images/muhasebe_sonra.png' } },
+    { id: "task-meeting", name: "Toplantıya katıl", objectId: "meeting-table-object", completed: false, interactionText: "Toplantıya katılmak için E'ye bas" , imageStates: { initial: 'images/toplantı.png', completed: 'images/toplantı.png' } },
+    //{ id: "task-coffee", name: "Kahve al", objectId: "coffee-machine-object", completed: false, interactionText: "Kahve almak için E'ye bas" },
+    //{ id: "task-planning", name: "Proje planla", objectId: "project-board-object", completed: false, interactionText: "Plan yapmak için E'ye bas" },
+    { id: "task-water-plant-work", name: "Çiçek sula", objectId: "office-plant-object", completed: false, interactionText: "Bitkiyi sulamak için E'ye bas" , imageStates: { initial: 'images/çiçek_kuru.png', completed: 'images/çiçek_sulanmış.png' } },
   ];
 
 
@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     config.activeTasks = [];
     config.taskPanelListElement.innerHTML = "";
-    
+
     // Sahnedeki etkileşimli nesnelerin görsellerini başlangıç durumuna ayarla
     config.allTasks.forEach(task => {
       if (task.objectId && task.imageStates && task.imageStates.initial) {
@@ -316,7 +316,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
-  
+
   function handleSceneDrop(e) {
     e.preventDefault();
     if (!currentSceneConfig) return;
@@ -444,7 +444,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (newLocationKey !== "ev") { // Ana görünümde ev için ayrı bir task listesi yok
       renderMainViewTasks();
     } else {
-        taskList.innerHTML = "<li>Ev görevleri oyun sahnesinde yönetilir.</li>"; // Ev için ana görünümde görev listesi yok
+      taskList.innerHTML = "<li>Ev görevleri oyun sahnesinde yönetilir.</li>"; // Ev için ana görünümde görev listesi yok
     }
   }
 
@@ -461,9 +461,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     currentTasksForView.forEach((task) => {
       const li = document.createElement("li");
-      li.textContent = `${task.name} (Öncelik: ${
-        task.priority !== undefined ? task.priority : "N/A"
-      })`;
+      li.textContent = `${task.name} (Öncelik: ${task.priority !== undefined ? task.priority : "N/A"
+        })`;
       // İsteğe bağlı: Tamamlanma durumu da gösterilebilir.
       // if (task.completed) li.classList.add("completed-task");
       taskList.appendChild(li);
@@ -566,9 +565,9 @@ document.addEventListener("DOMContentLoaded", () => {
     config.timerInterval = null;
     config.timeLeft = sceneConfigs[config.key].timeLeft; // Reset to initial time
     if (config.timerDisplayElement) { // Update display to initial time
-        const minutes = Math.floor(config.timeLeft / 60);
-        const seconds = config.timeLeft % 60;
-        config.timerDisplayElement.textContent = `Süre: ${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+      const minutes = Math.floor(config.timeLeft / 60);
+      const seconds = config.timeLeft % 60;
+      config.timerDisplayElement.textContent = `Süre: ${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
     }
   }
 
@@ -586,8 +585,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!sceneConfigs[sceneKeyToShow]) return;
 
     mainView.style.display = "none";
-    if (currentSceneConfig) { 
-        currentSceneConfig.sceneElement.style.display = "none";
+    if (currentSceneConfig) {
+      currentSceneConfig.sceneElement.style.display = "none";
     }
 
     currentSceneKey = sceneKeyToShow;
@@ -641,9 +640,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Sahne çıkış butonları için config üzerinden dinamik olarak atama
   Object.values(sceneConfigs).forEach(config => {
-      if (config.exitButtonElement) {
-          config.exitButtonElement.addEventListener("click", hideScene);
-      }
+    if (config.exitButtonElement) {
+      config.exitButtonElement.addEventListener("click", hideScene);
+    }
   });
 
   // Başlangıç Ekranı Olayları
