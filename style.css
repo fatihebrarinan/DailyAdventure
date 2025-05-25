@@ -322,21 +322,21 @@ footer {
 #school-scene .game-canvas {
     /* background-color: #AEC6CF; yukarıda tanımlandı */
 }
-#blackboard-object { width: 300px; height: 180px; top: 30px; left: 50%; transform: translateX(-50%); }
-#school-desk-object { width: 140px; height: 100px; bottom: 50px; left: 100px; }
-#library-bookshelf-object { width: 160px; height: 280px; top: 150px; right: 50px; }
-#science-lab-object { width: 200px; height: 140px; bottom: 150px; right: 150px; }
-#art-easel-object { width: 100px; height: 200px; top: 250px; left: 200px; }
+#blackboard-object { width: 450px; height: 240px; top: 30px; left: 50%; transform: translateX(-50%); }
+#school-desk-object { width: 210px; height: 150px; bottom: 50px; left: 100px; }
+#library-bookshelf-object { width: 240px; height: 420px; top: 150px; right: 50px; }
+#science-lab-object { width: 300px; height: 210px; bottom: 150px; right: 150px; }
+#art-easel-object { width: 200px; height: 300px; top: 250px; left: 200px; }
 
 /* İş Objeleri Stilleri (Örnekler) */
 #work-scene .game-canvas {
     /* background-color: #BCAAA4; yukarıda tanımlandı */
 }
-#computer-desk-object { width: 240px; height: 140px; top: 50px; left: 50px; }
-#meeting-table-object { width: 320px; height: 160px; bottom: 70px; left: 50%; transform: translateX(-50%); }
-#coffee-machine-object { width: 100px; height: 120px; top: 150px; right: 60px; }
-#project-board-object { width: 100px; height: 240px; top: 250px; left: 100px; }
-#office-plant-object { width: 90px; height: 110px; bottom: 200px; right: 80px; }
+#computer-desk-object { width: 360px; height: 210px; top: 50px; left: 50px; }
+#meeting-table-object { width: 480px; height: 240px; bottom: 70px; left: 50%; transform: translateX(-50%); }
+#coffee-machine-object { width: 200px; height: 180px; top: 150px; right: 60px; }
+#project-board-object { width: 200px; height: 320px; top: 250px; left: 100px; }
+#office-plant-object { width: 135px; height: 165px; bottom: 200px;right:80px;}
 
 /* Eski ID bazlı stilleri kaldır veya ortak class'lara uyarla */
 /* #home-timer-display, #home-task-panel, #player, #exit-home-btn, #bed-object vb. stilleri yukarıdaki ortak class'lar tarafından kapsanmalı veya özel durumlar için ID ile override edilebilir. */
@@ -346,14 +346,14 @@ footer {
 }
 
 /* Ev objeleri için metin rengi ve belirli stiller (ortak .interactive-object üzerine) */
-#bed-object { /* background-color, border-color kaldırılacak, width/height kalacak */ bottom: 30px; left: 50px; width:160px; height:240px;}
-#dishes-object { /* background-color, border-color kaldırılacak, width/height kalacak */ top: 50px; right: 50px; width:140px; height:100px;}
-#vacuum-object { /* background-color, border-color kaldırılacak, width/height kalacak */ bottom: 150px; right: 80px; width:100px; height:140px;}
-#trash-bin-object { /* background-color, border-color kaldırılacak, width/height kalacak */ top: 200px; left: 30px; width:80px; height:120px;}
-#laundry-machine-object { /* background-color, border-color kaldırılacak, width/height kalacak */ bottom: 250px; left: 150px; width:120px; height:160px;}
-#desk-object { /* background-color, border-color kaldırılacak, width/height kalacak */ top: 150px; right: 200px; width:200px; height:160px;}
-#plant-object { /* background-color, border-color kaldırılacak, width/height kalacak */ top: 300px; right: 100px; width:80px; height:100px;}
-#bookshelf-object { /* background-color, border-color kaldırılacak, width/height kalacak */ top: 250px; left: 250px; width:140px; height:200px;}
+#bed-object { /* background-color, border-color kaldırılacak, width/height kalacak */ bottom: 30px; left: 50px; width:240px; height:360px;}
+#dishes-object { /* background-color, border-color kaldırılacak, width/height kalacak */ top: 50px; right: 50px; width:210px; height:150px;}
+#vacuum-object { /* background-color, border-color kaldırılacak, width/height kalacak */ bottom: 150px; right: 80px; width:150px; height:210px;}
+#trash-bin-object { /* background-color, border-color kaldırılacak, width/height kalacak */ top: 200px; left: 30px; width:120px; height:180px;}
+#laundry-machine-object { /* background-color, border-color kaldırılacak, width/height kalacak */ bottom: 250px; left: 150px; width:180px; height:240px;}
+#desk-object { /* background-color, border-color kaldırılacak, width/height kalacak */ top: 150px; right: 200px; width:300px; height:240px;}
+#plant-object { /* background-color, border-color kaldırılacak, width/height kalacak */ top: 300px; right: 100px; width:120px; height:150px;}
+#bookshelf-object { /* background-color, border-color kaldırılacak, width/height kalacak */ top: 250px; left: 250px; width:210px; height:300px;}
 
 #home-task-panel { /* Ev paneline özel bir şey varsa */ }
 .dragging { opacity: 0.5; }
@@ -391,33 +391,33 @@ header {
 /* İnteraktif Harita Butonları */
 .interactive-map-button {
     position: absolute;
-    background-color: rgba(255, 0, 0, 0.3); /* Tamamen transparan, test için 0.3 gibi bir alpha değeri kullanılabilir */
+    background-color: rgba(255, 0, 0, 0); /* Tamamen transparan, test için 0.3 gibi bir alpha değeri kullanılabilir */
     cursor: pointer;
     border-radius: 10px; /* Kenarları biraz yuvarlaklaştıralım, görünmese de */
     transition: background-color 0.2s;
 }
-/* .interactive-map-button:hover {
-    background-color: rgba(255, 255, 0, 0.2); // Hover'da hafif sarı (opsiyonel)
-} */
+.interactive-map-button:hover {
+    background-color: rgba(255, 255, 0, 0.2); 
+} 
 
 /* Tahmini konumlar ve boyutlar - Bunlar resme göre ayarlanmalı */
 #interactive-school-btn {
     top: 10%; /* Örnek */
     left: 3%; /* Örnek */
-    width: 30%; /* Örnek */
+    width: 25%; /* Örnek */
     height: 30%; /* Örnek */
 }
 
 #interactive-home-btn {
     top: 10%; /* Örnek */
     left: 38%; /* Örnek */
-    width: 25%; /* Örnek */
+    width: 18%; /* Örnek */
     height: 30%; /* Örnek */
 }
 
 #interactive-work-btn {
-    top: 3%; /* Örnek */
+    top: 5%; /* Örnek */
     left: 73%; /* Örnek */
-    width: 23%; /* Örnek */
-    height: 33%; /* Örnek */
+    width: 14%; /* Örnek */
+    height: 35%; /* Örnek */
 } 

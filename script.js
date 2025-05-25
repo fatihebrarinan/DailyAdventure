@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { id: "task-trash", name: "Çöpü at", objectId: "trash-bin-object", completed: false, interactionText: "Çöpü atmak için E'ye bas", imageStates: { initial: 'images/çöp_kirli.png', completed: 'images/çöp_temiz.png' } },
     { id: "task-desk", name: "Masayı düzenle", objectId: "desk-object", completed: false, interactionText: "Masayı düzenlemek için E'ye bas", imageStates: { initial: 'images/masa_dağınık.png', completed: 'images/masa_toplu.png' } },
     { id: "task-plant", name: "Bitkileri sula", objectId: "plant-object", completed: false, interactionText: "Bitkileri sulamak için E'ye bas", imageStates: { initial: 'images/çiçek_kuru.png', completed: 'images/çiçek_sulanmış.png' } },
-    { id: "task-read", name: "Kitap oku", objectId: "bookshelf-object", completed: false, interactionText: "Kitap okumak için E'ye bas", imageStates: { initial: 'images/kitap_okuma.png', completed: 'images/kitap_okuma.png' } },
+    { id: "task-read", name: "Kitap oku", objectId: "bookshelf-object", completed: false, interactionText: "Kitap okumak için E'ye bas", imageStates: { initial: 'images/muhasebe_önce.png', completed: 'images/kitap_okuma.png' } },
   ];
 
   const allSchoolTasks = [
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const allWorkTasks = [
     { id: "task-coding", name: "Muhasebe işlerini yap", objectId: "computer-desk-object", completed: false, interactionText: "Muhasebe işlerini yapmak için E'ye bas", imageStates: { initial: 'images/muhasebe_önce.png', completed: 'images/muhasebe_sonra.png' } },
-    { id: "task-meeting", name: "Toplantıya katıl", objectId: "meeting-table-object", completed: false, interactionText: "Toplantıya katılmak için E'ye bas" , imageStates: { initial: 'images/toplantı.png', completed: 'images/toplantı.png' } },
+    { id: "task-meeting", name: "Toplantıya katıl", objectId: "meeting-table-object", completed: false, interactionText: "Toplantıya katılmak için E'ye bas" , imageStates: { initial: 'images/karakter_ön.png', completed: 'images/toplantı.png' } },
     //{ id: "task-coffee", name: "Kahve al", objectId: "coffee-machine-object", completed: false, interactionText: "Kahve almak için E'ye bas" },
     //{ id: "task-planning", name: "Proje planla", objectId: "project-board-object", completed: false, interactionText: "Plan yapmak için E'ye bas" },
     { id: "task-water-plant-work", name: "Çiçek sula", objectId: "office-plant-object", completed: false, interactionText: "Bitkiyi sulamak için E'ye bas" , imageStates: { initial: 'images/çiçek_kuru.png', completed: 'images/çiçek_sulanmış.png' } },
